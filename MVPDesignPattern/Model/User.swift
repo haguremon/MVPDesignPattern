@@ -6,8 +6,9 @@
 //
 
 import Foundation
-struct User: Codable { //public typealias Codable = Encodable & Decodable
+//public typealias Codable = Encodable & Decodableエンコードもデコードもどっちも行けまっせ
+struct User: Codable {
     let name: String
-    let email: String
     let username: String
+    let email: String
 }
