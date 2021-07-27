@@ -17,12 +17,12 @@ class UserPresenter {
     //これらでPresenterとUIViewControllerを相互作用することができる
     weak var delegate: PresenterDelegate?
     public func getUsers() {
-        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users ") else { return }
+        guard let url = URL(string: "https://jsonplaceholder.typicode.com/users") else { return }
         let task =  URLSession.shared.dataTask(with: url) { [ weak self] data, _, error in
             guard let data = data, error == nil else { return }
             do {
                 let users = try JSONDecoder().decode([User].self, from: data)
-                self?.delegate?.presentUsers(user: users)//これでユーザーを取得することが成功
+                self?.delegate?.presentUsers(user: users)//これでユーザーを[User]で取得することが成功して配列に入れる
             } catch {
                 print(error)
             }
